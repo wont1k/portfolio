@@ -4,7 +4,7 @@ include ("../includes/header.php");
 	if (!(isset($_SESSION['logged_user']))) :
 		echo "<meta http-equiv=refresh content=0;URL=auth.php?auth=0>";
 	else:
-    $pw = R::findOne('power', 'id = ?', [(int)$_GET['id']+1]);
+    $pw = R::findOne('power', 'id = ?', [(int)$_GET['id']]);
     $last = R::findLast('power');
     if ($pw->id != ''):?>
 		<div class="container-fluid">
@@ -27,8 +27,14 @@ include ("../includes/header.php");
             </div>
             <?php $data = $_POST;
    						 if (isset($data['success'])){
-   						 	$_SESSION['logged_user']->power = 	$_SESSION['logged_user']->power +1;
-      					R::store($_SESSION['logged_user']);
+                if ( !(R::findOne('powerList', 'id_user = ? AND id_training = ?', [$user->id, $pw->id]))): 
+                  $_SESSION['logged_user']->power =	$_SESSION['logged_user']->power +1;
+                  R::store($_SESSION['logged_user']);
+                  $pwlist = R::dispense('powerlist');
+                  $pwlist-> id_user = (int)$user-> id ;
+                  $pwlist-> id_training = (int)$pw-> id ;
+                  R::store($pwlist);
+                endif;
    					}?>
         </div>
       </div>

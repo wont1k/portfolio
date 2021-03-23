@@ -1,7 +1,7 @@
 <?php require "../includes/db.php"; 
 include ("../includes/header.php"); ?>
 
-<div class="container padding col-md-4">
+<div class="container log_reg col-md-4">
   <?if ($_GET['auth'] != ''){
     echo '<div style="color: red">'."Вам нужно авторизоваться".'</div> <hr>';
   }?>
@@ -23,9 +23,13 @@ include ("../includes/header.php"); ?>
       $user = R::findOne('users', 'login = ?', array($data['login']));
       if ($user){
         if (password_verify($data['password'], $user->password )){
-          $_SESSION['logged_user'] = $user;
-          echo '<div style="color: green">'."Вы успешно авторизовались".'</div> <hr>';
-          echo("<meta http-equiv='refresh' content='1'>");
+          if ($user->email_confirmed == 1){
+            $_SESSION['logged_user'] = $user;
+            echo '<div style="color: green">'."Вы успешно авторизовались".'</div> <hr>';
+            echo("<meta http-equiv='refresh' content='1'>");
+          }else {
+            $errors[] = "Email не подтверждён. Пожалуйста проверьте почту и подтвердите свой email";
+          }
         }else {  
           $errors[] = "Неверно введён пароль";
         }

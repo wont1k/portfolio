@@ -2,12 +2,12 @@
 include ("includes/header.php") ?>
 
     <!-- Слайдер -->
-		<div class="carousel slide" data-ride="carousel" id="slides">
-      <ul class="carousel-indicators">
-        <li data-target="#slides" data-slide-to="0" class="active"></li>
-        <li data-target="#slides" data-slide-to="1" class="active"></li>
-        <li data-target="#slides" data-slide-to="2" class="active"></li>
-      </ul>
+<div class="carousel slide" data-ride="carousel" id="slides">
+  <ul class="carousel-indicators">
+    <li data-target="#slides" data-slide-to="0" class="active"></li>
+    <li data-target="#slides" data-slide-to="1" class="active"></li>
+    <li data-target="#slides" data-slide-to="2" class="active"></li>
+  </ul>
       <div class="carousel-inner">
         <div class="carousel-item active">
           <img src="img/main/slider.jpg">
@@ -69,8 +69,8 @@ include ("includes/header.php") ?>
 
     <!-- Блок с описанием контента -->
 
-    <div class="container-fluid padding">
-      <div class="row text-center padding">
+    <div class="container">
+      <div class="row text-center foot">
         <div class="col-xs-12 col-sm-6 col-md-4">
           <h3>&#128526;БЛОГ</h3>
           <p>Интересные статьи из мира спорта, 
@@ -85,7 +85,6 @@ include ("includes/header.php") ?>
           <p>Всё о правильном питании и не только</p>
         </div>
       </div>
-      <hr class="my-4">
     </div>
 
     <!-- Подвал сайта -->

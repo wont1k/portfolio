@@ -7,7 +7,8 @@ $user = R::findOne('users', 'login = ?', [$log]);?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/css/styles.css"> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>  
+    <link rel="stylesheet" href="/css/styles.css">
   </head>
 <body>
     <!-- Шапка сайта -->
@@ -19,48 +20,42 @@ $user = R::findOne('users', 'login = ?', [$log]);?>
             </button>
           <div class="collapse navbar-collapse" id="collapsibleNavId">
               <ul class="navbar-nav ml-auto">
-                  <li class="nav-item <?php if ($_SERVER ['PHP_SELF'] == '/index.php') 
+                  <li class="nav-item<?php if ($_SERVER ['PHP_SELF'] == '/index.php') 
                             {
-                              ?> active
-                              <?php
+                              ?>active<?php
                             }?>">
                       <a class="nav-link" href="/index.php">Главная</a>
                   </li>
-                  <li class="nav-item <?php if ($_SERVER ['PHP_SELF'] == '/pages/blog.php') 
+                  <li class="nav-item<?php if ($_SERVER ['PHP_SELF'] == '/pages/blog.php') 
                             {
-                              ?> active
-                              <?php
+                              ?>active<?php
                             }?>">
                       <a class="nav-link" href="/pages/blog.php">Блог</a>
                   </li>
-                  <li class="nav-item <?php if ($_SERVER ['PHP_SELF'] == '/pages/training.php') 
+                  <li class="nav-item<?php if ($_SERVER ['PHP_SELF'] == '/pages/training.php') 
                             {
-                              ?> active
-                              <?php
+                              ?>active<?php
                             }?>">
                     <a class="nav-link" href="/pages/training.php">Тренировки</a>
                 </li>
-                <li class="nav-item <?php if ($_SERVER ['PHP_SELF'] == '/pages/diet.php') 
+                <li class="nav-item<?php if ($_SERVER ['PHP_SELF'] == '/pages/diet.php') 
                             {
-                              ?> active
-                              <?php
+                              ?>active<?php
                             }?>">
                     <a class="nav-link" href="/pages/diet.php">Диета</a>
                 </li>
-                <li class="nav-item <?php if ($_SERVER ['PHP_SELF'] == '/pages/calc.php') 
+                <li class="nav-item<?php if ($_SERVER ['PHP_SELF'] == '/pages/calc.php') 
                             {
-                              ?> active
-                              <?php
+                              ?>active<?php
                             }?>">
                     <a class="nav-link" href="/pages/calc.php">Калькулятор калорий</a>
                 </li>
-                <li class="nav-item <?php if ($_SERVER ['PHP_SELF'] == '/pages/login.php') 
+                <li class="nav-item<?php if ($_SERVER ['PHP_SELF'] == '/pages/login.php') 
                             {
-                              ?> active
-                              <?php
+                              ?>active<?php
                             }?>">
-                    <a class="nav-link" href="/pages/login.php">Личный кабинет <?php if ( isset($_SESSION['logged_user'])) :
-                    ?>: <?php echo $_SESSION['logged_user'] ->login;  endif;?></a>
+                    <a class="nav-link" href="/pages/login.php">Личный кабинет<?php if ( isset($_SESSION['logged_user'])) :
+                    ?>:<span class="login"><?php echo " " . $_SESSION['logged_user'] ->login;  endif;?></span></a>
                 </li>
               </ul>
           </div>

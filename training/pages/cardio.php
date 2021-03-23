@@ -4,9 +4,9 @@ include ("../includes/header.php");
 	if (!(isset($_SESSION['logged_user']))):
 		echo "<meta http-equiv=refresh content=0;URL=auth.php?auth=0>";
 	else: 
-    $cr = R::findOne('cardio', 'id = ?', [$_GET['id']+1]);
+    $cr = R::findOne('cardio', 'id = ?', [(int)$_GET['id']]);
     $last = R::findLast('cardio');
-    if ($cr->id <= $last->id):?>
+    if ($cr->id != ''):?>
 		<div class="container-fluid">
         <div class="row text-center alert">
             <div class="col-12">
@@ -18,22 +18,27 @@ include ("../includes/header.php");
               </div>
             </div>
             <div class="col-4 offset-4">
-            	<form action="cardio.php?id=<?php $cr->id+1?>">
-            		<button type="submit" name="success" class="btn-lg btn-success">Тренировку выполнил</button>
-            	</form>	
+                <form action="cardio.php?id=<?php echo $cr->id;?>" method="post">
+            		  <button type="submit" name="success" class="btn-lg btn-success">Тренировку выполнил</button>
+                </form>
             </div>
             <div class="col-4 offset-4 but_red">
-              <?php if ($user->privileges == 1): ?> <a href="redact_power.php?id=<?php echo $pw->id?>" class="btn-lg btn-dark">Редактировать запись</a><?php endif;?>
+              <?php if ($user->privileges == 1): ?> <a href="redact_cardio.php?id=<?php echo $cr->id?>" class="btn-lg btn-dark">Редактировать запись</a><?php endif;?>
             </div>
             <?php $data = $_POST;
    						 if (isset($data['success'])){
-   						 	$_SESSION['logged_user']->cardio = 	$_SESSION['logged_user']->cardio +1;
-      					R::store($_SESSION['logged_user']);
+                if ( !(R::findOne('cardioList', 'id_user = ? AND id_training = ?', [$user->id, $cr->id]))): 
+                  $_SESSION['logged_user']->cardio =	$_SESSION['logged_user']->cardio +1;
+                  R::store($_SESSION['logged_user']);
+                  $crlist = R::dispense('cardiolist');
+                  $crlist-> id_user = (int)$user-> id ;
+                  $crlist-> id_training = (int)$cr-> id ;
+                  R::store($crlist);
+                endif;
    					}?>
         </div>
       </div>
-      <?php
-      else :?>
+      <?php else :?>
       <div class="container-fluid">
         <div class="row text-center alert">
             <div class="col-12" style="color: green">
@@ -41,8 +46,8 @@ include ("../includes/header.php");
             </div>
         </div>
       </div>
-	<?php endif;
-  endif; ?>	
+  <?php endif;
+	endif; ?>
 		<!-- Подвал сайта -->
 
 

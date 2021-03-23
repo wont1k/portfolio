@@ -4,7 +4,7 @@ include ("../includes/header.php") ?>
     
     <!-- Блок с описанием контента -->
 
-    <div class="container padding col-md-4">
+    <div class="container col-md-4 calc">
         <form>
             <div class="form-group">
                 <label for="formGroupExampleInput">Возраст</label>
@@ -44,7 +44,7 @@ include ("../includes/header.php") ?>
                     <p id="age_er" style="color: red"></p>
                   </div>
                   <div class="col-7">
-                    <p>Суточная норма:</p>
+                    <span id="day">Суточная норма:</span>
                   </div>
                   <div class="col">
                     <p id="totalCals"></p>
@@ -54,7 +54,7 @@ include ("../includes/header.php") ?>
             <div class="container my-2">
                 <div class="row">
                   <div class="col-7">
-                    <p>Для похудения:</p>
+                    <span id="for_loss">Для похудения:</span>
                   </div>
                   <div class="col">
                     <p id="weight_loss"></p>
@@ -65,8 +65,6 @@ include ("../includes/header.php") ?>
     </div>
 
     <!-- Подвал сайта -->
-
-    <?php include ("../includes/footer.php") ?>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

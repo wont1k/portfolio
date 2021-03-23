@@ -12,7 +12,7 @@ include ("../includes/header.php") ?>
         </div>
         <hr>
         <div class="col-12">
-          Выберите, для чего Вам нужна диета
+          <span>Выберите, для чего Вам нужна диета</span>
         </div>
       </div>
     </div>
@@ -22,7 +22,8 @@ include ("../includes/header.php") ?>
     <div class="grid-posts">
         <div class="container">
             <div class="row">
-                <div class="card" style="width: 27rem;">
+              <div class="col-lg-4 col-sm-12">
+                <div class="card card-diet" style="width: 25rem;">
                     <img class="card-img-top" src="../img/diet/muscle.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Для набора массы</h5>
@@ -30,7 +31,9 @@ include ("../includes/header.php") ?>
                       <a href="mass.php" class="btn btn-dark">Выбрать</a>
                     </div>
                 </div>
-                <div class="card" style="width: 27rem;">
+              </div>
+              <div class="col-lg-4 offset-lg-3 col-sm-12"> 
+                <div class="card card-diet" style="width: 25rem;">
                     <img class="card-img-top" src="../img/diet/w_loss.jpg" alt="Card image cap">
                     <div class="card-body">
                       <h5 class="card-title">Для похудения</h5>
@@ -38,13 +41,12 @@ include ("../includes/header.php") ?>
                       <a href="gracilis.php" class="btn btn-dark">Выбрать</a>
                     </div>
                 </div>
+              </div>
             </div>
         </div>
     </div>
 
     <!-- Подвал сайта -->
-
-    <?php include ("../includes/footer.php") ?>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

@@ -3,6 +3,10 @@ include ("../includes/header.php");
 $dr = R::findOne('dry', 'id = ?', [$_GET['id']]);?>
 	<div class="container padding col-md-6">
 	  <form method="post">
+			<div class="form-group">
+	      <label for="name">Заголовок</label>
+	      <input type="text" class="form-control" name="title" id="title" value="<?php echo $bl->title;?>">
+	    </div>
 	    <div class="form-group">
 	      <label for="text">Текст тренировки</label>
 	      <textarea type="text" class="form-control" rows="8" name="text" id="text"><?php echo $dr->text ?></textarea>
